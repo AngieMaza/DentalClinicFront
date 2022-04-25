@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Appointment from "./components/Appointment";
+import Dentist from "./components/Dentist";
+import Patient from "./components/Patient";
+import AddDentist from "./components/AddDentist";
+import AddPatient from "./components/Addpatient";
+import UpdateDentist from "./components/UpdateDentist";
+import UpdatePatient from "./components/UpdatePatient";
+import AddAppointment from "./components/AddAppointment";
+import UpdateAppointment from "./components/UpdateAppointment";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/appointment" element={<Appointment/>} />
+          <Route path="/dentist" element={<Dentist/>}/>
+          <Route path="/patient" element={<Patient/>} />
+          <Route path="/add-appointment" element={<AddAppointment/>} />
+          <Route path="/add-dentist" element={<AddDentist/>} />
+          <Route path="/add-patient" element={<AddPatient/>} />
+          <Route path="/update-dentist/:id" element={<UpdateDentist/>} />
+          <Route path="/update-patient/:id" element={<UpdatePatient/>} />
+          <Route path="/update-appointment/:id" element={<UpdateAppointment/>} />
+        </Routes>
+      </BrowserRouter>
+  
   );
 }
 
